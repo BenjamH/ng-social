@@ -7,12 +7,16 @@ import { InstagramService } from '../services/instagram/instagram.service';
   styleUrls: ['./app-header.component.scss']
 })
 export class AppHeaderComponent implements OnInit {
+  userId: string;
+  authUrl: string;
 
 
   constructor(private instagramService: InstagramService) {
   }
 
   ngOnInit() {
+    this.userId = this.instagramService.userId;
+    this.authUrl = this.instagramService.authUrl;
   }
 
 }
