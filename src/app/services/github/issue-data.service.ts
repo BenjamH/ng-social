@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import { Todo } from '../../todo';
+import { environment } from '../../../environments/environment';
 
 import { Observable } from 'rxjs/Observable';
 import * as rxjs from 'rxjs/observable';
@@ -14,7 +15,7 @@ import 'rxjs';
 @Injectable()
 export class IssueDataService {
     clientId: string = '8841b2853b6e4a34a846249c8564ed81';
-    redirectUri: string = 'http://localhost:4200';
+    redirectUri: string = environment.url;
 
   constructor(
       private http: Http,
