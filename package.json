@@ -1,5 +1,5 @@
 {
-  "name": "todo-app",
+  "name": "ng-social",
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
@@ -9,7 +9,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "deploy": "ng build -sm -ec -bh 'https://benjamh.github.io/ng-social/' & ngh"
+    "deploy": "ng build --prod --base-href 'https://benjamh.github.io/ng-social/' & ngh"
   },
   "private": true,
   "dependencies": {
