@@ -1,0 +1,9 @@
+<section class="album" *ngIf="posts.length > 0">
+  <ngb-carousel>
+    <template class="slide" *ngFor="let post of posts; let i = index" [id]="post.id" ngbSlide>
+      <app-post class="post" [post]="post"></app-post>
+    </template>
+  </ngb-carousel>
+</section>
+
+

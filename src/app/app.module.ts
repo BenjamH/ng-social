@@ -1,33 +1,36 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
+import { HttpModule, JsonpModule } from '@angular/http';
 import { Ng2Webstorage } from 'ng2-webstorage';
 import { AppComponent } from './app.component';
-import { TodoDataService } from './to-do-data.service';
-import { IssueDataService } from './services/github/issue-data.service';
-import { TodoListHeaderComponent } from './todo-list-header/todo-list-header.component';
-import { TodoListComponent } from './todo-list/todo-list.component';
-import { TodoListItemComponent } from './todo-list-item/todo-list-item.component';
-import { TodoListFooterComponent } from './todo-list-footer/todo-list-footer.component';
+import { InstagramService } from './services/instagram/instagram.service';
+import { AppHeaderComponent } from './app-header/app-header.component';
+import { AlbumComponent } from './album/album.component';
+import { PostComponent } from './post/post.component';
+import { AppRoutingModule } from './app-routing.module';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    TodoListHeaderComponent,
-    TodoListComponent,
-    TodoListItemComponent,
-    TodoListFooterComponent
+    AppHeaderComponent,
+    AlbumComponent,
+    PostComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    Ng2Webstorage
+    JsonpModule,
+    Ng2Webstorage,
+    AppRoutingModule,
+    NgbModule.forRoot()
   ],
   providers: [
-    TodoDataService,
-    IssueDataService
+    InstagramService
   ],
   bootstrap: [AppComponent]
 })

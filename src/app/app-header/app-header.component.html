@@ -1,0 +1,5 @@
+<header class="header text-center">
+  <button *ngIf="!instagramService.userId">
+    <a [href]="instagramService.authUrl">login</a>
+  </button>
+</header>
