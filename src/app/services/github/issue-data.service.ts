@@ -7,14 +7,17 @@ import * as rxjs from 'rxjs/observable';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/take';
+import 'rxjs';
 
 
 
 @Injectable()
 export class IssueDataService {
+    clientId: string = '8841b2853b6e4a34a846249c8564ed81';
+    redirectUri: string = 'http://localhost:4200';
 
   constructor(
-      private http: Http
+      private http: Http,
   ) { }
 
   getIssues(): any {
@@ -35,6 +38,14 @@ export class IssueDataService {
       console.log(err);
       return Observable.throw(err);
         })
+  }
+
+  login(): any {
+      return this.http.get(`https://api.instagram.com/oauth/authorize/?client_id=${this.clientId}&redirect_uri=${this.redirectUri}&response_type=token`)
+          .map((res) => res.json())
+          .catch((err) => {
+          return Observable.throw(err);
+          })
   }
 
 

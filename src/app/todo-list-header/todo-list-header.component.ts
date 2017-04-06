@@ -1,5 +1,6 @@
 import { Component, Output, EventEmitter } from '@angular/core';
 import { Todo } from '../todo';
+import { IssueDataService } from '../services/github/issue-data.service';
 
 @Component({
   selector: 'app-todo-list-header',
@@ -15,7 +16,7 @@ export class TodoListHeaderComponent {
   @Output()
   add: EventEmitter<Todo> = new EventEmitter();
 
-  constructor() {
+  constructor(private issueDataService: IssueDataService) {
   }
 
   /* dumb component, not awre of what happens outside of itself, only received input via property binding
@@ -27,6 +28,13 @@ export class TodoListHeaderComponent {
   addTodo() {
     this.add.emit(new Todo(this.newTodo));
     this.newTodo = {};
+  }
+
+  login() {
+    this.issueDataService.login()
+        .subscribe((res) => {
+      console.log(res);
+    })
   }
 
 }
